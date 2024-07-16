@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <h1>Hoş Geldiniz</h1>
+    <p> 
+      Dosya Yükleme ve Görüntüleme Platformu
+      Bu platformda, dosyalarınızı kolayca yükleyebilir, yönetebilir ve görüntüleyebilirsiniz. </p>
+  
+    <div class="button-container">
+      <div class="btn-group">
+        <input type="button" id="file1" class="btn" (click)="myFiles()" />
+        <label for="file1">Dosyalarım</label>
+  
+        <input type="button" id="file2" (click)="allFiles()"/>
+        <label for="file2" class="btn-1 btn">Tüm Dosyalar</label>
+      </div>
+  
+      <div class="btn-group">
+
+
+        <div class="file-upload-container">
+          <input type="file" id="file3" (change)="onFileSelected($event)" hidden>
+          <label for="file3" class="btn-2 btn2">Dosya Seç</label>
+          <button class="btn-upload " (click)="uploadFile()"><i class="bi bi-cloud-arrow-up"></i></button>
+          <p *ngIf="selectedFile">Seçilen Dosya: {{ selectedFile.name }}</p>
+        </div>
+
+
+
+        <!-- <input type="file" id="file3" (click)="uploadFile()" />
+        <label for="file3" class="btn-2 btn2">Dosya Yükle</label> -->
+        
+       
+  
+        <input type="button" id="file4" (click)="logout()"/>
+        <label for="file4" class="btn-3 btn2">
+          <span>Çıkış</span>
+        </label>
+      </div>
+    </div>
+  </div>

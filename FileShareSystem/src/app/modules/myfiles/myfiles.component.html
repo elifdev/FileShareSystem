@@ -1,0 +1,18 @@
+<div class="file-list">
+  <div *ngFor="let file of filesPerPage" class="file-item">
+    <div class="file-icon">
+      <i class="fas fa-file-{{getFileIcon(file.name)}}"></i>
+    </div>
+    <div class="file-info">
+      <a href="#" class="file-name">{{file.name}}</a>
+      <div class="file-details">
+        <span class="file-path">{{file.path}}</span>
+        <span class="file-date">{{file.date}}</span>
+        <span class="file-uploader">Yükleyen: {{file.uploader}}</span>
+      </div>
+    </div>
+    <div class="file-actions">
+      <button (click)="downloadFile()" class="download-btn"><i class="fas fa-download"></i></button>
+    </div>
+  </div>
+</div>
