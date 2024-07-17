@@ -41,7 +41,7 @@ export class HomeComponent {
   //   const file: File = event.target.files[0];
   //   if (file) {
   //     this.selectedFile = file;
-  //     console.log("Dosya seçildi: ", file); // Konsola dosya bilgilerini yazdır
+  //     console.log("Dosya seçildi: ", file);
   //   }
   // }
 
@@ -49,27 +49,27 @@ export class HomeComponent {
     const file: File = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      console.log("Dosya seçildi: ", file); // Konsola dosya bilgilerini yazdır
+      console.log("Dosya seçildi: ", file); 
     } else {
-      console.warn("Dosya seçilmedi."); // Dosya seçilmemişse uyarı mesajı ver
+      console.warn("Dosya seçilmedi."); 
     }
   }
 
   uploadFile() {
     if (this.selectedFile) {
-      console.log("Dosya yükleniyor: ", this.selectedFile); // Yükleme işleminden önce konsola dosya bilgilerini yazdır
+      console.log("Dosya yükleniyor: ", this.selectedFile); 
       this.fileService.uploadFile(this.selectedFile).subscribe(
         response => {
-          console.log("Yükleme başarılı: ", response); // Başarılı yanıtı konsola yazdır
+          console.log("Yükleme başarılı: ", response); 
           this.toastr.success('Dosya başarıyla yüklendi');
         },
         error => {
-          console.error("Yükleme hatası: ", error); // Hata durumunu konsola yazdır
+          console.error("Yükleme hatası: ", error); 
           this.toastr.error('Dosya yükleme başarısız');
         }
       );
     } else {
-      console.warn("Hiçbir dosya seçilmedi."); // Dosya seçilmemişse uyarı mesajı ver
+      console.warn("Hiçbir dosya seçilmedi."); 
     }
   }
 
