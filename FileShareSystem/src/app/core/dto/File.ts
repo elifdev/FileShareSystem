@@ -1,4 +1,4 @@
-import { User } from "./user";
+
 
 export class  File {
     constructor(
@@ -6,7 +6,7 @@ export class  File {
         public fileName: string = '',
         public filePath: string = '',
         public localDateTime: string = '',
-        public user : User ,
+        
        
     ) { }
 }

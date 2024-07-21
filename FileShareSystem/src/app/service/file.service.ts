@@ -1,20 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { SuccessResponse } from '../core/dto/successResponse';
-
+export interface MyFile {
+  fileName: string;
+  uploadDate : string;
+  filePath: string;
+}
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class FileService {
 
  
-  constructor(
-    private httpClient: HttpClient,
-  ) { }
+  private filesSubject = new BehaviorSubject<MyFile[]>([]);
+  files$ = this.filesSubject.asObservable();
 
-  getAllFiles(): Observable<File[]>{
-    return this.httpClient.get<File[]>('/files/getAll');
+  constructor(private httpClient: HttpClient) {}
+
+  getAllFiles(): Observable<MyFile[]> {
+    return this.httpClient.get<MyFile[]>('/files/getAll');
+  }
+
+  addFileToList(file: MyFile): void {
+    const currentFiles = this.filesSubject.value;
+    this.filesSubject.next([...currentFiles, file]);
   }
 
   uploadFile(file: File): Observable<SuccessResponse> {
@@ -23,8 +35,8 @@ export class FileService {
     
     return this.httpClient.post<SuccessResponse>('/files/upload', formData);
   }
-  downloadFile(){
-    window.location.href='http://localhost:8080/api/v1/files/download/{fileId}';
+  downloadFile(fileId: string): void {
+    window.location.href = `http://localhost:8080/api/v1/files/download/${fileId}`;
   }
 
   updateFile(file: File): Observable<SuccessResponse> {

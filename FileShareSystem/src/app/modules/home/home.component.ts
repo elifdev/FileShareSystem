@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { FileService } from '../../service/file.service';
+import { FileService, MyFile } from '../../service/file.service';
 import { SuccessResponse } from '../../core/dto/successResponse';
 
 @Component({
@@ -19,6 +19,7 @@ export class HomeComponent {
     private toastr: ToastrService,
     private router: Router,
     private fileService : FileService,
+    private route: ActivatedRoute,
   ) { }
 
 
@@ -62,6 +63,7 @@ export class HomeComponent {
         response => {
           console.log("Yükleme başarılı: ", response); 
           this.toastr.success('Dosya başarıyla yüklendi');
+          this.router.navigate(['/myfiles'], { relativeTo: this.route });
         },
         error => {
           console.error("Yükleme hatası: ", error); 
@@ -72,5 +74,6 @@ export class HomeComponent {
       console.warn("Hiçbir dosya seçilmedi."); 
     }
   }
+
 
 }
