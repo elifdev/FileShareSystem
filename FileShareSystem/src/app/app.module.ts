@@ -17,6 +17,7 @@ import { SignupComponent } from './core/signup/signup.component';
 import { MyfilesComponent } from './modules/myfiles/myfiles.component';
 import { AllfilesComponent } from './modules/allfiles/allfiles.component';
 import { HomeComponent } from './modules/home/home.component';
+import { FileComponent } from './modules/file/file.component';
 
 
 
@@ -28,6 +29,7 @@ import { HomeComponent } from './modules/home/home.component';
     HomeComponent,
     MyfilesComponent,
     AllfilesComponent,
+    FileComponent,
     
   ],
   imports: [

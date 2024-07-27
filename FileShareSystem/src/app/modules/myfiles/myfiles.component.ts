@@ -55,9 +55,8 @@ export class MyfilesComponent implements OnInit {
    
   }
 
-  openFile(file: MyFile): void {
-   
-    const fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(file.filePath);
-    window.open(fileUrl as string, '_blank');
+   getFile() {
+    this.router.navigate(['/file']);
   }
+
 }

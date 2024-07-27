@@ -5,6 +5,7 @@ import { SignupComponent } from './core/signup/signup.component';
 import { HomeComponent } from './modules/home/home.component';
 import { MyfilesComponent } from './modules/myfiles/myfiles.component';
 import { AllfilesComponent } from './modules/allfiles/allfiles.component';
+import { FileComponent } from './modules/file/file.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'myfiles', component: MyfilesComponent },
   { path: 'allfiles', component: AllfilesComponent },
+  { path: 'file', component: FileComponent },
 ];
 
 @NgModule({

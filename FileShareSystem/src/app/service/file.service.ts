@@ -47,5 +47,8 @@ export class FileService {
     return this.httpClient.post<SuccessResponse>('/files/delete', {id});
   }
 
+  getFile(fileId: string): Observable<Blob> {
+    return this.httpClient.get(`/files/${fileId}`, { responseType: 'blob' });
+  }
   
 }
