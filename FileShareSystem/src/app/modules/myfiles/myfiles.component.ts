@@ -55,8 +55,8 @@ export class MyfilesComponent implements OnInit {
    
   }
 
-   getFile() {
-    this.router.navigate(['/file']);
+  getFile(file: MyFile) {
+    const encodedPath = encodeURIComponent(file.filePath);
+    this.router.navigate(['/file', encodedPath]);  // Dosya yolunu kodlayarak iletin
   }
-
 }

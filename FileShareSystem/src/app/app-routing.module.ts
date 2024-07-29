@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'myfiles', component: MyfilesComponent },
   { path: 'allfiles', component: AllfilesComponent },
-  { path: 'file', component: FileComponent },
+  { path: 'file/:id', component: FileComponent },
 ];
 
 @NgModule({
